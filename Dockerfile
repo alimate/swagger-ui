@@ -1,12 +1,4 @@
-FROM alpine:3.3
-
-MAINTAINER Roman Tarnavski
-
-RUN apk add --update nginx
-
-COPY nginx.conf /etc/nginx/
-ADD ./dist/ /usr/share/nginx/html
-
-EXPOSE 8080
-
-CMD nginx -g 'daemon off;'
+FROM httpd:2.4
+MAINTAINER Ali Dehghani <ali.dehghani.g@gmail.com>
+COPY ./dist/ /usr/local/apache2/htdocs/
+EXPOSE 80
